@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <script src="index.js" defer>
+    </script>
+    <h1>Anomaly Detection Server</h1>
+    <div class="container">
+    <form action="/detect" method="POST" enctype="multipart/form-data" name="findAnomalies" target="result" id="form_detect">
+        <labal>CSV Learn File:</labal>
+        <input class="inputs" type="file" name="learn_file" id="learn_file">    
+        <br>
+        <labal>CSV Detect File:</labal>
+        <input class="inputs" type="file" name="detect_file" id="detect_file">
+        <br>
+        <div class="box">
+        <labal>Select Algorithm:</labal>
+        <select name="algo_type" id="algo_type">
+            <option value="1">Hybrid</option>
+            <option value="2">Regression</option>
+        </select>
+        
+        </div>
+        <br><br><br><br>
+        <p>
+        <input type="submit" class="submit">
+        </p>
+    </form>
+    </div>
+    <br>
+    <iframe name="result" id="iframe1" style="border: 0;" width="0" height="0"></iframe>
+    <table id="tableDetect" width="80%" height="auto" style="text-align: center;">
+        <tr>
+           <th class="table_header">Description</th>
+           <th class="table_header" >Time Step</th>
+        </tr>
+
+    </table>
+</body>
+</html>

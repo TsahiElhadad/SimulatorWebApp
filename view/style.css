@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 2;
+  padding: 2;
+}
+body {
+  background-color: rgb(216, 216, 216);
+  background-image: url("flight.gif");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: #cccccc;
+  background-position-x: 0%;
+  background-position-y: 15%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 180px;
+  border: 2px solid rgb(75, 73, 73);
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.inputs {
+  display: inline-block;
+  background: rgb(75, 73, 73);
+  color: #fff;
+  border: none;
+  width: 40%;
+  padding: 10px 10px 10px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.submit {
+  display: inline-block;
+  background: rgb(75, 73, 73);
+  color: white;
+  padding: 14px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.box {
+  position: absolute;
+}
+
+.box select {
+  background-color: rgb(75, 73, 73);
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box::before {
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
+table#tableDetect {
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-width: 1px;
+}
+th,
+td {
+  text-align: center;
+  font-size: 22;
+}
+/* .airplane-image{
+    background-image: url(../externel/flight_background.gif);
+} */
+tr {
+  color: black;
+  font-size: 44;
+  text-align: center;
+  background-color: rgb(146, 146, 146);
+  border: 15 solid black;
+}
+.table_header {
+  color: white;
+
+  font-size: 30;
+  text-align: center;
+  background-color: rgb(75, 73, 73);
+  /* border-width: 3; */
+}
+/* tr:nth-child(even) {
+  background-color: rgb(124, 124, 124);
+} */
+
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 40;
+  background-color: rgb(75, 73, 73);
+  border: 5px solid black;
+}
