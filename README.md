@@ -9,7 +9,7 @@ When the upload complete, the user can choose between 2 algorithms that will det
 
 ## More on the implementation process
 
-As described earlier, the application provides the user an interface through which he can upload 2 CSV files:
+As described above, the application provides the user an interface through which he can upload 2 CSV files:
 * Learn file - with this CSV file, the app can identify what is proper flight (by the data and anomalies) 
 * Detect file - the app will determine if the uploaded CSV file present a proper flight & identify anomalies (if exists)
 
@@ -32,7 +32,6 @@ Description | Time Step
 
 **Features and tools:**
 * MVC architecture
-* Multithreading Programming
 * Architectural and design pattern
 * Communication and Client-Server Architecture
 
@@ -40,7 +39,7 @@ Description | Time Step
 ## Compile and run
 To download and set up 'SimulatorWebApp' application, follow these steps:
 1. Download 'SimulatorWebApp' app from GitHub
-2. Import the project in Visual studio Code (for example) 
+2. Import the project in Visual Studio Code (for example) 
 3. Run the 
 4. Click the connect button and follow the instructions
 5. Enjoy!
