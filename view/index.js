@@ -1,4 +1,11 @@
 const iframe = document.querySelector("#iframe1")
+const table = document.querySelector("#tableDetect")
+  
+function clearBefore() {
+    //$("#tableDetect").contents().remove();
+    $("#tableDetect").find("tr:gt(0)").remove();
+}   
+
 function parser() {
     let data = iframe.contentWindow.document.body.children[0]?.innerHTML
     console.log(data)
@@ -8,9 +15,10 @@ function parser() {
     console.log(jsonData)
     loadDataToTable(jsonData)
 }
+
 iframe.addEventListener("load",parser)
 
-const table = document.querySelector("#tableDetect")
+
 function loadDataToTable(jsonData) {
     jsonData.forEach(element => {
         let tr = document.createElement("tr")

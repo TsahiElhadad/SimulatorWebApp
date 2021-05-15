@@ -5,8 +5,8 @@
 </head>
 
 <body>
-    <script src="index.js" defer>
-    </script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="index.js" defer></script>
     <h1>Anomaly Detection Server</h1>
     <div class="container">
     <form action="/detect" method="POST" enctype="multipart/form-data" name="findAnomalies" target="result" id="form_detect">
@@ -26,7 +26,7 @@
         </div>
         <br><br><br><br>
         <p>
-        <input type="submit" class="submit">
+        <input type="submit" class="submit" onclick="clearBefore()">
         </p>
     </form>
     </div>
@@ -37,6 +37,7 @@
            <th class="table_header">Description</th>
            <th class="table_header" >Time Step</th>
         </tr>
+        <tbody id="tbid"></tbody>
 
     </table>
 </body>

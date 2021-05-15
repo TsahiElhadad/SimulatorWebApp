@@ -8,6 +8,7 @@ body {
   background-color: rgb(216, 216, 216);
   background-image: url("flight.gif");
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: 100%;
   background-color: #cccccc;
   background-position-x: 0%;
