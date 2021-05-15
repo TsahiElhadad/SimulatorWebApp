@@ -40,9 +40,9 @@ Description | Time Step
 To download and set up 'SimulatorWebApp' application, follow these steps:
 1. Download 'SimulatorWebApp' app from GitHub
 2. Import the project in Visual Studio Code (for example) 
-3. Run the 
-4. Click the connect button and follow the instructions
-5. Enjoy!
+4. `node server.js` to run the server
+5. Enter `http://localhost:8080/` to open the web application
+6. Enjoy!
 
 <p align="center">
   <img src="View/Resources/Main.jpeg" width = "600" /> 
