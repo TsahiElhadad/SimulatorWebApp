@@ -89,7 +89,7 @@ class SimpleAnomalyDetector {
         for (let cfStruct in this.cf) {
             for(let i = 0; i < numOfLines; i++) {
                 if(this.isAnomaly(ts, this.cf[cfStruct], i)) {
-                    let AnomalyReport = {description: this.cf[cfStruct].feature1 + "-" + this.cf[cfStruct].feature2, timeStep: i+1}
+                    let AnomalyReport = {description: this.cf[cfStruct].feature1 + "\n" + this.cf[cfStruct].feature2, timeStep: i+1}
                     arVec.push(AnomalyReport)
                 }
             }

@@ -10,6 +10,8 @@ async function learnAndDetect(learnFile, detectFile, algoType) {
         anomalyDetector = new hybrid.HybridAnomalyDetector()
     else if(algoType === "2")
         anomalyDetector = new simple.SimpleAnomalyDetector()
+    else
+        return {}
     await anomalyDetector.learnNormal(tsLearn)
     let anomalyList = await anomalyDetector.detect(tsDetect)
     return anomalyList

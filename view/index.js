@@ -1,18 +1,25 @@
 const iframe = document.querySelector("#iframe1")
 const table = document.querySelector("#tableDetect")
+
+function csvCheck(csvID) {
+    let path = document.getElementById(csvID).value
+    if(!path.endsWith(".csv")) {
+        alert("Wrong Input! Please Upload CSV File.")
+        document.getElementById(csvID).value = ""
+    }
+}
   
 function clearBefore() {
-    //$("#tableDetect").contents().remove();
     $("#tableDetect").find("tr:gt(0)").remove();
 }   
 
 function parser() {
     let data = iframe.contentWindow.document.body.children[0]?.innerHTML
-    console.log(data)
+    //console.log(data)
     if(!data) return
     console.log("there is data")
     let jsonData = JSON.parse(data)
-    console.log(jsonData)
+    //console.log(jsonData)
     loadDataToTable(jsonData)
 }
 
