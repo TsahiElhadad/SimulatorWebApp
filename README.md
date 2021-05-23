@@ -45,6 +45,6 @@ To download and set up 'SimulatorWebApp' application, follow these steps:
 6. Enjoy!
 
 <p align="center">
-  <img src="Main.jpeg" width = "600" /> 
+  <img src="Main.jpeg" width = "800" height="300"/> 
 </p>
  
