@@ -59,6 +59,8 @@ body {
 
 .box {
   position: absolute;
+  width: 29%;
+  text-align: center;
 }
 
 .box select {

@@ -15,14 +15,23 @@ app.get("/",(req,res)=>{
 })
 
 app.post("/detect", async (req,res)=>{
-    if(req.files){ // check if we get files
-        var learnFile = req.files.learn_file
-        var detectFile = req.files.detect_file
-        var algoType = req.body.algo_type
-        var result = await model.learnAndDetect(learnFile.data.toString(),detectFile.data.toString(), algoType)
-        res.write(JSON.stringify(result))
+    try {
+        if(req.files){ // check if we get files
+            var learnFile = req.files.learn_file
+            var detectFile = req.files.detect_file
+            var algoType = req.body.algo_type
+            var result = await model.learnAndDetect(learnFile.data.toString(),detectFile.data.toString(), algoType)
+            res.write(JSON.stringify(result))
+        }
+        res.end()
     }
-    res.end()
+    catch(error) {
+        if(error.message === "no algoType")
+            res.write("no algoType")
+        else
+            res.write("error in csv")
+        res.end()
+    }
 })
 console.log("server is run");
 app.listen(8080)

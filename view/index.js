@@ -15,11 +15,16 @@ function clearBefore() {
 
 function parser() {
     let data = iframe.contentWindow.document.body.children[0]?.innerHTML
-    //console.log(data)
     if(!data) return
-    console.log("there is data")
+    if(data === "error in csv") {
+        alert("Error! Invalid CSV FILE. Please Upload Two Valid CSV Files")
+        return
+    }
+    if(data === "no algoType") {
+        alert("Please Choose An Algorithm")
+        return
+    }
     let jsonData = JSON.parse(data)
-    //console.log(jsonData)
     loadDataToTable(jsonData)
 }
 

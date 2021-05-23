@@ -5,40 +5,41 @@
 </head>
 
 <body>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="index.js" defer></script>
-    <h1>Anomaly Detection Server</h1>
-    <div class="container">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="index.js" defer></script>
+<h1>Anomaly Detection Server</h1>
+<div class="container">
     <form action="/detect" method="POST" enctype="multipart/form-data" name="findAnomalies" target="result" id="form_detect">
-        <labal>Upload CSV Learn File:</labal>
-        <input class="inputs" type="file" name="learn_file" id="learn_file" onchange="csvCheck(id)">    
+        <labal>Upload CSV Learn File:&nbsp;</labal>
+        <input class="inputs" type="file" name="learn_file" id="learn_file" onchange="csvCheck(id)">
         <br>
         <labal>Upload CSV Detect File:</labal>
         <input class="inputs" type="file" name="detect_file" id="detect_file" onchange="csvCheck(id)">
         <br>
-        <div class="box">
-        <labal>Select Algorithm:</labal>
-        <select name="algo_type" id="algo_type">
-            <option value="1">Hybrid</option>
-            <option value="2">Regression</option>
-        </select>
-        
+        <div class="box" style="margin-left:auto;margin-right:auto;text-align:center">
+            <select name="algo_type" id="algo_type">
+<!--                <option value="0" style="display: none"> Select Algorithm  </option>-->
+                <option disabled selected value> Select Algorithm  </option>
+                <option value="1">Hybrid</option>
+                <option value="2">Regression</option>
+            </select>
+
         </div>
         <br><br><br><br>
         <p>
-        <input type="submit" class="submit" onclick="clearBefore()">
+            <input type="submit" class="submit" onclick="clearBefore()">
         </p>
     </form>
-    </div>
-    <br>
-    <iframe name="result" id="iframe1" style="border: 0;" width="0" height="0"></iframe>
-    <table id="tableDetect" width="80%" height="auto" style="text-align: center;">
-        <tr>
-           <th class="table_header_description">Description</th>
-           <th class="table_header_timeStep">Time Step</th>
-        </tr>
-        <tbody id="tbid"></tbody>
+</div>
+<br>
+<iframe name="result" id="iframe1" style="border: 0;" width="0" height="0"></iframe>
+<table id="tableDetect" width="80%" height="auto" style="text-align: center;">
+    <tr>
+        <th class="table_header_description">Description</th>
+        <th class="table_header_timeStep">Time Step</th>
+    </tr>
+    <tbody id="tbid"></tbody>
 
-    </table>
+</table>
 </body>
 </html>
