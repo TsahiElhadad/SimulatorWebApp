@@ -102,7 +102,10 @@ body {
 }
 
 table#tableDetect {
-  width: 100%;
+  width: 50%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
   border-width: 1px;
 }
 th,
