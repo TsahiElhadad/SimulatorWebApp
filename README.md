@@ -7,6 +7,7 @@ RESTful API Web based HTTP protocol App using MVC Architecture.
 The application provides the user an interface through which he can upload 2 CSV files (Learn file & Detect file). <br/>
 When the upload complete, the user can choose between 2 algorithms that will detect potential anomalies. <br/>
 
+
 ## More on the implementation process
 
 As described above, the application provides the user an interface through which he can upload 2 CSV files:
@@ -21,6 +22,9 @@ After clicking the 'send' button, the server will run the choosen algorithm, and
 Description | Time Step 
 -----|-------
 ` ` | ` `
+
+## Explanation video:
+https://kapwi.ng/c/BKLnuFUA
 
 
 ## Tech/framework used
