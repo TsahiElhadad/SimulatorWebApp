@@ -1,7 +1,7 @@
 const iframe = document.querySelector("#iframe1")
 const table = document.querySelector("#tableDetect")
 
-// Function for check if user upload csv file.
+/// function for check if user upload csv file.
 function csvCheck(csvID) {
     let path = document.getElementById(csvID).value
     if(!path.endsWith(".csv")) { // if its csv file
@@ -10,12 +10,12 @@ function csvCheck(csvID) {
     }
 }
 
-// Function that clear the detect table before each request of detect.
+/// function that clear the detect table before each request of detect.
 function clearBefore() {
     $("#tableDetect").find("tr:gt(0)").remove();
 }   
 
-// Function that parse the data we get from server to the frame and displayed it into the Detect Table.
+/// function that parse the data we get from server to the frame and displayed it into the Detect Table.
 function parser() {
     let data = iframe.contentWindow.document.body.children[0]?.innerHTML
     if(!data) return
@@ -33,7 +33,7 @@ function parser() {
 
 iframe.addEventListener("load",parser)
 
-// Function that create the detect table by the json data we get.
+/// function that create the detect table by the json data we get.
 function loadDataToTable(jsonData) {
     jsonData.forEach(element => {
         let tr = document.createElement("tr")

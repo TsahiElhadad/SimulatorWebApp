@@ -2,8 +2,8 @@ var timeSeries = require('./timeseries');
 var simple = require('./SimpleAnomalyDetector');
 var hybrid = require('./HybridAnomalyDetector');
 
-// Asynchronous function that get learnFile, DetectFile, and type of Algorithm and making anomalies list
-// from the files we get and return it the anomalies list.
+/// Asynchronous function that get learnFile, DetectFile, and type of Algorithm and making anomalies list
+/// from the files we get and return it the anomalies list.
 async function learnAndDetect(learnFile, detectFile, algoType) {
     let tsLearn = new timeSeries.TimeSeries(learnFile)
     let tsDetect = new timeSeries.TimeSeries(detectFile)

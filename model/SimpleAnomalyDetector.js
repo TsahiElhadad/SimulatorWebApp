@@ -1,19 +1,6 @@
 var utilClass = require('./anomaly_detection_util');
 
-// struct of correlatedFeatures
-var correlatedFeatures = {
-    feature1: "",
-    feature2: "",
-    correlation: 0,
-    lin_reg: "",
-    threshold: 0
-};
-
-var AnomalyReport = {
-    description: "",
-    timeStep: 0,
-};
-
+/// class SimpleAnomalyDetector
 class SimpleAnomalyDetector {
     constructor() {
         this.cf = []
@@ -34,15 +21,18 @@ class SimpleAnomalyDetector {
         return cfMaxDev;
     }
 
+    /// checks if the correlation is higher enough for create a struct and returns true if it does.
     isCorrelatedEnough(correlation) {
         return Math.abs(correlation) > this.correlationThresholdLine;
     }
 
+    /// the function completes updating the struct -the line and the threshold.
     completeStruct(cfStruct, f1, f2, matrix, size) {
         cfStruct.lin_reg = utilClass.linear_reg(matrix[f1], matrix[f2], size);
         cfStruct.threshold = this.getMaxDev(matrix[f1], matrix[f2], cfStruct.lin_reg, size) * 1.1;
     }
 
+    /// the function creates the "struct" and pushes it to the cfTemp list.
     makeStruct(ts, f1, f2, maxPearson, cfTemp) {
         let matrix = ts.getMapMatrix();
         let correlatedFeatures = { feature1: f1, feature2: f2, correlation: maxPearson, lin_reg: "", threshold: 0 };
@@ -50,6 +40,8 @@ class SimpleAnomalyDetector {
         cfTemp.push(correlatedFeatures)
     }
 
+    /// this is the offline learning level - learning from proper flight data the correlative features and their linear
+    /// regression line, their pearson and calculate their threshold.
     learnNormal(ts) {
         let cfTemp = []
         let matrix = ts.getMapMatrix();
@@ -76,15 +68,18 @@ class SimpleAnomalyDetector {
         this.cf = cfTemp
     }
 
+    /// the function returns true if there is an anomaly in this line (if the deviation is too high). false otherwise.
     isAnomaly(ts, cfStruct, indexLine) {
         let matrix = ts.getMapMatrix();
         let p = new utilClass.Point(matrix[cfStruct.feature1][indexLine], matrix[cfStruct.feature2][indexLine]);
         let tempDev = utilClass.dev(p, cfStruct.lin_reg); /// check the deviation in the line
         return tempDev > cfStruct.threshold;
     }
-
+    
+    /// this is the online anomaly detection level - reading the live flight data line by line and if we found a deviation
+    /// we will report about it with the details of the deviation.
     detect(ts) {
-        let arVec = []; /// the AnomalyReport vector we will return
+        let arVec = []; // the AnomalyReport list we will return
         let numOfLines = ts.getNumOfData();
         for (let cfStruct in this.cf) {
             for(let i = 0; i < numOfLines; i++) {
@@ -97,12 +92,12 @@ class SimpleAnomalyDetector {
         return arVec;
     }
 
+    /// returns the cf list.
     getNormalModel() {
         return this.cf;
     }
 }
 
-//module.exports.SimpleAnomalyDetector = this.SimpleAnomalyDetector
 module.exports.learnNormal = this.learnNormal
 module.exports.detect = this.detect
 module.exports.getNormalModel = this.getNormalModel

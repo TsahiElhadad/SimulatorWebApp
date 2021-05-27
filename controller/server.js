@@ -10,12 +10,12 @@ app.use(express.urlencoded({
 app.use(fileUpload())
 app.use(express.static('../view'))
 
-// send home page - index.html by directing the Path "/" to client
+/// send home page - index.html by directing the Path "/" to client
 app.get("/",(req,res)=>{
     res.sendFile("index.html")
 })
 
-// handle "/detect" request from client, learn and detect by two files that sent to server and return anomalies.
+/// handle "/detect" request from client, learn and detect by two files that sent to server and return anomalies.
 app.post("/detect", async (req,res)=>{
     try {
         if(req.files){ // check if we get files

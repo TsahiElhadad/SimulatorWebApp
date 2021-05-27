@@ -2,6 +2,7 @@ var utilClass = require('./anomaly_detection_util');
 var simpleClass = require('./SimpleAnomalyDetector');
 const enclosingCircle = require('smallest-enclosing-circle')
 
+/// class Circle
 class Circle {
     constructor(c, r) {
         this.center = c;
@@ -9,6 +10,7 @@ class Circle {
     }
 }
 
+/// class HybridAnomalyDetector - extends SimpleAnomalyDetector
 class HybridAnomalyDetector extends simpleClass.SimpleAnomalyDetector {
     constructor() {
         super();
@@ -20,9 +22,9 @@ class HybridAnomalyDetector extends simpleClass.SimpleAnomalyDetector {
         return (Math.abs(correlation) > Math.min(this.correlationThresholdCircle, this.correlationThresholdLine));
     }
 
-    /// the function creates and returns the line and the threshold for the struct - in this case the line will represent
-    /// the center point of the circle we will create to check anomalies. line.a represents the center.x and line.b
-    /// represents the center.y. the threshold will represent the radius of the circle.
+    /// the function completes updating the struct. the line will represent the center point of the circle we will
+    /// create to check anomalies. line.a represents the center.x and line.b represents the center.y.
+    /// the threshold will represent the radius of the circle.
     completeStruct(cfStruct, f1, f2, matrix, size) {
         if (Math.abs(cfStruct.correlation) > this.correlationThresholdLine) {
             return super.completeStruct(cfStruct, f1, f2, matrix, size);
@@ -45,9 +47,8 @@ class HybridAnomalyDetector extends simpleClass.SimpleAnomalyDetector {
         }
         let matrix = ts.getMapMatrix();
         let p = new utilClass.Point(matrix[cfStruct.feature1][i], matrix[cfStruct.feature2][i]);
-        /// as i mentioned above, the line in the struct
+        // as i mentioned above, the line in the struct represent the center point of the circle. threshold represents the radius.
         let circle = new Circle(new utilClass.Point(cfStruct.lin_reg.a, cfStruct.lin_reg.b), cfStruct.threshold);
-        /// represent the center point of the circle. threshold represents the radius.
         let distance = Math.sqrt(((circle.center.x - p.x) * (circle.center.x - p.x)) + ((circle.center.y - p.y) * (circle.center.y - p.y)));
         return distance > circle.radius;
 

@@ -1,14 +1,13 @@
+/// class Line
 class Line {
     constructor(a, b) {
         this.a = a;
         this.b = b;
     }
-
-    f(x) {
-        return a * x + b;
-    }
+    f(x) { return a * x + b; }
 }
 
+/// class Point
 class Point {
     constructor(x, y) {
         this.x = x;
@@ -16,8 +15,7 @@ class Point {
     }
 }
 
-
-// returns the average of X
+/// returns the average of X
 function avg(x, size) {
     let sum = 0;
     let i;
@@ -27,7 +25,7 @@ function avg(x, size) {
     return (sum / size);
 }
 
-// returns the variance of X and Y
+/// returns the variance of X and Y
 function variance(x, size) {
     let sum = 0;
     let u = avg(x, size);
@@ -39,7 +37,7 @@ function variance(x, size) {
     return sum - Math.pow(u, 2.0);
 }
 
-// returns the covariance of X and Y
+/// returns the covariance of X and Y
 function cov(x, y, size) {
     let sum = 0;
     for (let i = 0; i < size; i++) {
@@ -49,6 +47,7 @@ function cov(x, y, size) {
     let covariance = sum - (avg(x, size) * avg(y, size));
     return covariance;
 }
+
 /// returns the Pearson correlation coefficient of X and Y
 function pearson(x, y, size) {
     let numerator = cov(x, y, size);
@@ -56,19 +55,7 @@ function pearson(x, y, size) {
     return numerator / denominator;
 }
 
-// performs a linear regression and returns the line equation
-// function linear_reg(points, size) {
-//     let px;
-//     let py;
-//     let i;
-//     for (i = 0; i < size; i++) {
-//         px[i] = points[i].x;
-//         py[i] = points[i].y;
-//     }
-//     return linear_reg(px, py, size);
-// }
-
-/// performs a linear regression and returns the line equation - but get 2 float* instead point**
+/// performs a linear regression and returns the line equation
 function linear_reg(x, y, size) {
     let covariance = cov(x, y, size);
     let vari = variance(x, size);
@@ -78,13 +65,6 @@ function linear_reg(x, y, size) {
     let b = averageY - (a * averageX);
     return new Line(a, b);
 }
-
-/*
-/// returns the deviation between point p and the line equation of the points
-function dev(p, points, size) {
-    let l = linear_reg(points, size);
-    return dev(p, l);
-}*/
 
 /// returns the deviation between point p and the line
 function dev(p, l) {
