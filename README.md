@@ -28,7 +28,7 @@ Description | Time Step
 **Built with**
 * Visual Studio Code
 
-*Based on JavaScript, React & HTML*
+*Based on JavaScript, NodeJs & HTML*
 
 **Features and tools:**
 * MVC architecture
